@@ -34,4 +34,4 @@ sudo echo > /home/xtreamcodes/iptv_xtream_codes/logs/error.log
 
 ### Screenshots
 
-![image](https://opengraph.githubassets.com/65740129b6b8f74eae178412a56bd38ece6a40dd1799406487a2857b97f33ce1/xtream-ui-org/xtream-ui-install)
+![image](https://minio1.vsys.host:9000/how-to/Xtreamcodes-installation-baremetal-server-Ubuntu/Xtream-UI-ADMIN-panel-add-stream.webp)
