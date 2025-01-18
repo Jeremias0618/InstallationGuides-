@@ -1,6 +1,6 @@
-# xtream-ui
+# XTREAM-UI
 
-### Guía de instalación de Xtream-UI###
+### Guía de instalación de Xtream-UI
 
 ```
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install software-properties-common libxslt1-dev libcurl3 libgeoip-dev python -y;
@@ -8,14 +8,14 @@ wget https://github.com/emre1393/xtreamui_mirror/raw/master/install.py
 ```
  
 
-### Iniciar Xtream-UI manualnente###
+### Iniciar Xtream-UI manualnente
 
 ```
 /home/xtreamcodes/iptv_xtream_codes/start_services.sh
 ```
 
 
-### Borrar registros de Xtream-UI ###
+### Borrar registros de Xtream-UI
 
 Los registros a veces pueden ocupar demasiado espacio. Puede borrar los registros si se queda
 sin espacio en disco. Puedes hacerlo así:
