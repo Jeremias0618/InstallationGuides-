@@ -1,0 +1,37 @@
+# xtream-ui
+
+### Guía de instalación de Xtream-UI###
+
+```
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install software-properties-common libxslt1-dev libcurl3 libgeoip-dev python -y;
+wget https://github.com/emre1393/xtreamui_mirror/raw/master/install.py
+```
+ 
+
+### Iniciar Xtream-UI manualnente###
+
+```
+/home/xtreamcodes/iptv_xtream_codes/start_services.sh
+```
+
+
+### Borrar registros de Xtream-UI ###
+
+Los registros a veces pueden ocupar demasiado espacio. Puede borrar los registros si se queda
+sin espacio en disco. Puedes hacerlo así:
+
+```
+sudo mysql -u root -h localhost -D xtream_iptvpro -e "TRUNCATE TABLE client_logs;"
+sudo mysql -u root -h localhost -D xtream_iptvpro -e "TRUNCATE TABLE user_activity;"
+sudo mysql -u root -h localhost -D xtream_iptvpro -e "TRUNCATE TABLE mag_logs;"
+sudo mysql -u root -h localhost -D xtream_iptvpro -e "CREATE TABLE stream_logs_new LIKE
+stream_logs; RENAME TABLE stream_logs TO stream_logs_old, stream_logs_new TO
+stream_logs; DROP TABLE stream_logs_old;"
+sudo echo > /home/xtreamcodes/iptv_xtream_codes/logs/access.log
+sudo echo > /home/xtreamcodes/iptv_xtream_codes/logs/error.log
+```
+
+
+### Screenshots
+
+![image](https://opengraph.githubassets.com/65740129b6b8f74eae178412a56bd38ece6a40dd1799406487a2857b97f33ce1/xtream-ui-org/xtream-ui-install)
