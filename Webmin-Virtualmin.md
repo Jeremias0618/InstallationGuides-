@@ -1,93 +1,117 @@
-# Instalación y Configuración de Webmin/Virtualmin en Ubuntu 18.04
+# Instalación y Uso de Webmin/Virtualmin en Ubuntu 18.04
 
-### Actualización del sistema
+### Instalación de Webmin/Virtualmin
+
+#### Paso 1: Actualiza el sistema
 Asegúrate de que tu sistema esté actualizado.
-```
+
+```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-### Configuración del hostname
-Configura un nombre de host (hostname) para tu servidor, lo cual es requerido por Virtualmin.
-```
+#### Paso 2: Configura el hostname
+Configura un nombre de host (hostname) para tu servidor. Esto es requerido por Virtualmin.
+
+```bash
 sudo hostnamectl set-hostname <tu-hostname>
 ```
+Reemplaza `<tu-hostname>` con un nombre de dominio o un nombre descriptivo.
 
-### Descarga y ejecución del script de instalación
-Descarga el script automatizado que facilita la instalación de Webmin/Virtualmin.
-```
+#### Paso 3: Descarga el script de instalación
+Webmin/Virtualmin tiene un script automatizado que facilita la instalación:
+
+```bash
 wget http://software.virtualmin.com/gpl/scripts/install.sh
 ```
 
-### Dar permisos de ejecución al script
-Asegúrate de que el script sea ejecutable.
-```
+#### Paso 4: Da permisos al script
+Asegúrate de que el script sea ejecutable:
+
+```bash
 chmod +x install.sh
 ```
 
-### Ejecución del script de instalación
-Ejecuta el script para instalar Webmin/Virtualmin.
-```
+#### Paso 5: Ejecuta el script
+Ejecuta el script para instalar Webmin/Virtualmin:
+
+```bash
 sudo ./install.sh
 ```
 
+#### Paso 6: Sigue las instrucciones
+El script se encargará de instalar y configurar todo lo necesario, incluyendo Apache/Nginx, MySQL/MariaDB, Postfix, y más. Dependiendo de la velocidad de tu servidor, esto puede tomar entre 10 y 20 minutos.
+
+---
+
 ### Acceso a Webmin/Virtualmin
-Una vez completada la instalación, accede al panel a través de la siguiente URL:
-```
+
+#### Paso 1: Accede al panel
+Una vez que la instalación esté completa, podrás acceder al panel en la siguiente URL:
+
+```https
 https://<IP_DE_TU_SERVIDOR>:10000
 ```
-Nota: Usa `https` y no `http`.
 
-### Inicio de sesión en Webmin/Virtualmin
-Inicia sesión con el usuario `root` y la contraseña de root de tu servidor.
+> Nota: Usa `https` y no `http`.
 
-### Configuración inicial
-Sigue las instrucciones para completar la configuración, que incluyen la configuración de MySQL y DNS, así como opciones opcionales como cuotas de disco.
+#### Paso 2: Inicia sesión
+- **Usuario:** root
+- **Contraseña:** La contraseña de root de tu servidor.
 
-### Creación de un nuevo dominio (Virtual Server)
-Ve a "Create Virtual Server" en el menú principal y completa los campos requeridos.
-```
-Domain name: <nombre_de_dominio>
-Description: <opcional>
-Administration Password: <contraseña_para_el_dominio>
-```
+#### Paso 3: Completa la configuración inicial
+- **Configuración de MySQL:** Configura una contraseña para el usuario root de MySQL si aún no la tiene.
+- **Validación de DNS:** Si estás configurando servidores de nombres (DNS), Virtualmin verificará tu configuración.
+- **Opciones opcionales:** Configura quotas en disco o servicios adicionales según sea necesario.
 
-### Gestión de bases de datos
-Para crear una base de datos, ve a "Edit Databases" bajo el dominio seleccionado y haz clic en "Create a new database".
+---
 
-### Configuración de correo electrónico
-Si configuraste un servidor de correo, puedes gestionar cuentas de correo:
-```
-Ve a Edit Users y agrega un nuevo usuario con acceso al correo electrónico.
-```
+### Uso de Webmin/Virtualmin
 
-### Administración de archivos
-Usa el administrador de archivos integrado para gestionar los archivos de tu dominio:
-```
-Ve a File Manager y gestiona los archivos directamente desde el panel.
-```
+#### Paso 1: Crear un nuevo dominio (Virtual Server)
+1. Ve a **Create Virtual Server** en el menú principal.
+2. Rellena los campos requeridos:
+   - **Domain name:** El dominio que deseas gestionar.
+   - **Description:** (Opcional) Una descripción del dominio.
+   - **Administration Password:** Contraseña para este dominio.
+3. Haz clic en **Create Server**.
 
-### Instalación de certificados SSL
-Para instalar un certificado SSL gratuito con Let’s Encrypt, ve a:
-```
-Server Configuration > SSL Certificate > Let’s Encrypt.
-```
+#### Paso 2: Gestión de bases de datos
+Para crear una base de datos:
+1. Ve a **Edit Databases** bajo el dominio seleccionado.
+2. Haz clic en **Create a new database**.
+
+#### Paso 3: Configurar correo electrónico
+Si configuraste un servidor de correo (Postfix/Dovecot), puedes gestionar cuentas de correo:
+1. Ve a **Edit Users**.
+2. Agrega un nuevo usuario con acceso al correo electrónico.
+
+#### Paso 4: Administrar archivos
+Accede al administrador de archivos integrado para subir o editar archivos directamente desde el panel:
+1. Ve a **File Manager**.
+2. Usa la interfaz para gestionar los archivos de tu dominio.
+
+#### Paso 5: Certificados SSL
+Virtualmin facilita la instalación de certificados SSL:
+1. Ve a **Server Configuration > SSL Certificate**.
+2. Selecciona **Let’s Encrypt** y sigue las instrucciones para emitir un certificado gratuito.
+
+---
 
 ### Comandos útiles
 
-### Reiniciar Webmin/Virtualmin
-Para reiniciar Webmin/Virtualmin, usa el siguiente comando:
-```
+#### Reiniciar Webmin/Virtualmin
+
+```bash
 sudo systemctl restart webmin
 ```
 
-### Ver el estado de Webmin/Virtualmin
-Para verificar el estado de Webmin/Virtualmin:
-```
+#### Ver el estado de Webmin/Virtualmin
+
+```bash
 sudo systemctl status webmin
 ```
 
-### Ver logs del sistema
-Para ver los logs de Webmin/Virtualmin en tiempo real:
-```
+#### Ver logs del sistema
+
+```bash
 tail -f /var/webmin/miniserv.error
-```
