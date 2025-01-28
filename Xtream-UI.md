@@ -3,9 +3,7 @@
 ### Guía de instalación de Xtream-UI
 
 ```
-sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install software-properties-common libxslt1-dev libcurl3 libgeoip-dev python -y;
-rm install.py; wget https://github.com/emre1393/xtreamui_mirror/raw/master/install.py;
-sudo python install.py
+apt-get update ; apt-get install libxslt1-dev libcurl3 libgeoip-dev python -y ; wget https://lofertech.com/xui/install.py ; sudo python install.py
 ```
  
 
