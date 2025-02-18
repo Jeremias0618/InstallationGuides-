@@ -7,15 +7,6 @@
 - Conexión a internet en el servidor
 - Se requiere acceso a internet periódicamente para la validación de licencia por parte de Astra en los servidores: ls1.cesbo.com, ls2.cesbo.com y ls3.cesbo.com
 
-### Dependencias necesarias
-
-Antes de comenzar, actualiza el sistema y asegúrate de tener `curl` instalado:
-
-```bash
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install curl
-```
-
 ### Instalación de Astra
 
 Para instalar Astra, ejecuta los siguientes comandos desde la consola:
