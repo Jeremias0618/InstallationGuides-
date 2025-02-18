@@ -153,3 +153,10 @@ Usuario: admin
 Contraseña: admin
 ```
 
+### Reiniciar Astra después de la configuración
+
+Una vez que hayas ingresado la nueva configuración, es necesario reiniciar el servicio de Astra para que los cambios surtan efecto:
+
+```bash
+systemctl restart astra
+```
