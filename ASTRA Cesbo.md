@@ -136,11 +136,3 @@ Dentro de la opción "Edit Config", copia el siguiente código y reemplaza la co
 Usuario: admin
 Contraseña: admin
 ```
-
-### Reiniciar Astra después de la configuración
-
-Una vez que hayas ingresado la nueva configuración, es necesario reiniciar el servicio de Astra para que los cambios surtan efecto:
-
-```bash
-systemctl restart astra
-```
