@@ -48,20 +48,13 @@ Download license: curl -o /etc/astra/license.txt https://cesbo.com/astra-license
 For more information, please check: Quick Start
 ```
 
-### Reiniciar el servicio de Astra
-
-Después de instalar la licencia, reinicia el servicio de Astra:
-
-```bash
-systemctl restart astra
-```
-
 ### Iniciar Astra Cesbo
 
 Para iniciar el servicio de Astra Cesbo:
 
 ```bash
 astra init
+systemctl start astra
 ```
 
 ### Habilitar inicio automático
