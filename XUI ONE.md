@@ -55,7 +55,7 @@ tar -xf xui_crack.tar.gz
 sh /tmp/install.sh
 ```
 
-
+---
 
 ### Acceso a XUI ONE
 
@@ -72,7 +72,7 @@ http://<IP_DE_TU_SERVIDOR>/<APIKEY>
 - Usuario: admin
 - Contraseña: admin (o la que hayas configurado durante la instalación).
 
-
+---
 
 ### Uso de XUI ONE
 
@@ -91,7 +91,7 @@ XUI ONE te permite gestionar el tráfico y los recursos disponibles. Asegúrate 
 #### Paso 4: Generar y gestionar certificados
 Para generar certificados SSL y gestionar conexiones seguras, ve a la sección correspondiente dentro del panel de administración.
 
-
+---
 
 ### Consejos para XUI ONE
 
@@ -213,3 +213,36 @@ Si deseas ver los logs en tiempo real para analizar posibles errores o problemas
 ```bash
 tail -f /var/log/xui.log
 ```
+
+---
+
+### Migración para base de datos
+
+Para realizar una migración desde XTREAM UI a XUI ONE, deben de realizar un backup de XTREAM UI. Después de ello, obtendrán un archivo sql en la siguiente ubicación:
+
+```bash
+/home/xtreamcodes/iptv_xtream_codes/adtools/backups
+```
+
+El backup del XTREAM UI deberán moverlo a la siguiente ruta:
+
+```bash
+/root/
+```
+
+Ahora con el archivo dentro de la carpeta indicada, deberán usar los siguientes comandos para la restauración:
+
+```bash
+/home/xui/tools migration "/root/xtream-ui.sql"
+```
+
+```bash
+mysql xui_migrate < /root/xtream-ui.sql
+```
+
+```bash
+/home/xui/bin/php/bin/php /home/xui/includes/cli/migrate.php
+```
+
+Tener en cuenta que al migrar todos los datos de XTREAM UI a XUI ONE, tendrán que ingresar con las credenciales de XTREAM UI, ya que toda la data habrá sido reemplazada.
+
